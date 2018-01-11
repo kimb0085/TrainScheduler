@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Train Scheduler</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Eczar|Gentium+Basic|Libre+Baskerville|Libre+Franklin|Proza+Libre|Rubik|Taviraj|Trirong|Work+Sans" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/0f296b3a6c.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  	crossorigin="anonymous"></script>
+  	<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+</head>
+<body>
+	<br>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<header class="jumbotron">
+				<h1><i class="fa fa-subway" aria-hidden="true"></i> ALL ABOARD! <i class="fa fa-subway" aria-hidden="true"></i></h1>
+				<h2>Arrivals and Depatures</h2>
+			</header>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div class="card">
+				<div class="card-header">
+			    	We Know the Question: Will I Be On Time For Work? The Answer:
+				</div>
+				<table class="table">
+				  	<tr>
+					    <th>Train Name</th>
+					    <th>Destination</th>
+					    <th>Frequency (min)</th>
+					    <th>Next Arrival</th>
+					    <th>Minutes Away</th>
+				    </tr>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+	<br><br>
+	
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div class="card">
+				<div class="card-header">
+			    	Trains, Trains, Trains... We Want More Trains!
+				</div>
+				<div class='card-body'>
+					<form>
+						<div class='form-group'>
+							<label for='trainName'>Train Name</label>
+							<input type='name' class='form-control' id='trainName'>
+						</div>
+
+						<div class='form-group'>
+							<label for='destination'>Destination</label>
+							<input type='destination' class='form-control' id='destination'>
+						</div>
+
+						<div class='form-group'>
+							<label for='startTime'>First Train Time (HH:mm - military time, sir yes, sir)</label>
+							<input type='time' class='form-control' id='startTime'>
+						</div>
+
+						<div class='form-group'>
+							<label for='frequency'>Frequency (min late for work)</label>
+							<input type='rate' class='form-control' id='frequency'>
+						</div>
+
+						<button class="btn btn-dark" id="addData" type="submit">Submit</button>
+					
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+	<br><br>
+
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+</html>

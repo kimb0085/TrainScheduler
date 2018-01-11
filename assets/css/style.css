@@ -1,0 +1,38 @@
+.jumbotron {
+	text-align: center;
+	background-color: darkCyan;
+	border-color: darkCyan;
+	color: white;
+}
+
+i {
+
+}
+
+h1 {
+	font-family: 'Libre Baskerville', serif;
+}
+
+h2 {
+	font-family: 'Taviraj', serif;
+}
+
+.card {
+	border-color: mediumAquamarine;
+}
+
+.card-header {
+	background-color: mediumAquamarine;
+	border-color: mediumAquamarine;
+	color: white;
+	font-weight: bolder;
+	font-family: 'Proza Libre', sans-serif;
+}
+
+.btn {
+	background-color: mediumAquamarine;
+	border-color: mediumAquamarine;
+	color: white;
+	font-weight: bolder;
+	font-family: 'Proza Libre', sans-serif;
+}
