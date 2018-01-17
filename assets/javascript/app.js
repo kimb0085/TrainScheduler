@@ -13,7 +13,7 @@
   var trainName = "";
   var destination = "";
   var frequency = "";
-  var startTime = "HH:mm:ss";
+  var startTime = "HH:mm";
   var nextArrival = "";
   var minutesAway = "";
 
@@ -36,7 +36,7 @@
   			'<td>1</td>'])
   });
 
-  $("addData").on("click", function(event) {
+  $("#addData").on("click", function(event) {
   	event.preventDefault();
 
   	trainName = $("#trainName").val().trim();
@@ -45,26 +45,23 @@
   	frequency = $("#frequency").val().trim();
 
   	var newTrain = database.ref().push({
+  	});
+
+  	newTrain.set({
   		trainName: trainName,
   		destination: destination,
   		startTime: startTime,
   		frequency: frequency,
+      nextArrival: nextArrival,
   		dateAdded: firebase.database.ServerValue.TIMESTAMP
   	});
 
-  	// newTrain.set({
-  	// 	trainName: trainName,
-  	// 	destination: destination,
-  	// 	startTime: startTime,
-  	// 	frequency: frequency,
-  	// 	dateAdded: firebase.database.ServerValue.TIMESTAMP
-  	// });
-
   });
 
-  database.ref().on("child_added", function(childSnapshot) {
-  	trainName = childSnapshot.val().trainName;
-  	destination = childSnapshot.val().destination;
-  	startTime = childSnapshot.val().startTime;
-  	frequency = childSnapshot.val().frequency;
-  })
+   database.ref().on("child_added", function(snapshot) {
+    var trainRow = $("<tr>");
+    nextArrival = moment(startTime, 'HH:mm:ss').add(frequency, 'minutes').format('HH:mm');
+
+    trainRow.html("<td>" + snapshot.child("trainName").val() + "</td>" + "<td>" + snapshot.child("destination").val() + "</td>" + "<td>" + snapshot.child("frequency").val() + "</td>" + "<td>" + snapshot.child("startTime").val() + "</td>" + "<td>" + snapshot.child("nextArrival").val() + "</td>");
+    $(".table").append(trainRow);
+  });
